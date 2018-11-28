@@ -2,7 +2,8 @@ const handler = require("./handler");
 
 const routes = {
   "/": handler.home,
-  "404": handler.notFound
+  "404": handler.notFound,
+  "/api": handler.apiHandler
 };
 
 module.exports = function(req, res) {
