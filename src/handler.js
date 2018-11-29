@@ -1,7 +1,8 @@
 const https = require("https");
 const fs = require("fs");
 const path = require("path");
-const nasa = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY";
+const request = require("request");
+// const nasa = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY";
 
 const handleHomeRoute = (request, response) => {
   const url = request.url;
@@ -44,20 +45,18 @@ const handlePublic = (request, response, url) => {
   });
 };
 
-const apiHandler = (request, response, url) => {
-  https.get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY", res => {
-    let result = "";
-    response.on("data", chunk => {
-      result += chunk;
-    });
-    response.on("error", () => {
-      console.log("error in the apiHandler");
-    });
-    response.on("end", () => {
-      response.writeHead(200, { "Content-Type": "text/html" });
-      response.end(JSON.parse(result));
-    });
-  });
+const apiHandler = (req, res) => {
+  console.log("serving cotech route");
+  request(
+    "https://www.coops.tech/wp-json/wp/v2/service",
+    { json: true },
+    (error, response, body) => {
+      console.log("error:", error); // Print the error if one occurred
+      console.log("statusCode:", response && response.statusCode); // Print the response status code if a response was received
+      console.log("body:", body[0].slug);
+      // console.log(body.explanation);
+    }
+  );
 };
 
 // handler.apiHandler();
