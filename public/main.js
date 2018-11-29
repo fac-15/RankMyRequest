@@ -1,1 +1,1 @@
-console.log("hi I'm main js");
+alert("hi I'm main js");
