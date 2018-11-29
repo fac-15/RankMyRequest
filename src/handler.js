@@ -60,6 +60,8 @@ const apiHandler = (request, response, url) => {
   });
 };
 
+// handler.apiHandler();
+
 module.exports = {
   handleHomeRoute,
   handlePublic,
