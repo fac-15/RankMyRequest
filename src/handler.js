@@ -1,26 +1,45 @@
-const handler = (module.exports = {});
-// const request = require("request");
 const https = require("https");
 const fs = require("fs");
 const path = require("path");
 const nasa = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY";
 
-const headers = {
-  html: { "content-type": "text/html" },
-  css: { "content-type": "text/css" },
-  js: { "content-type": "application/javascript" }
+const handleHomeRoute = (request, response) => {
+  const url = request.url;
+  console.log(url);
+  const filePath = path.join(__dirname, "..", "public", "index.html");
+  fs.readFile(filePath, (error, file) => {
+    if (error) {
+      console.log(error);
+      response.writeHead(500, "Content-Type: text/html");
+      response.end("<h1>Sorry, we've had a problem on our end</h1>");
+    } else {
+      response.writeHead(200, "Content-Type: text/html");
+      response.end(file);
+    }
+  });
 };
 
-handler.home = function(req, res) {
-  const filePath = path.join(__dirname, "..", "public", "index.html");
-  fs.readFile(filePath, (err, file) => {
-    if (err) {
-      console.log(err);
-      res.writeHead(500, headers.html);
-      res.end("<h1>Sorry, html file is not working.</h1>");
+const handlePublic = (request, response, url) => {
+  const extension = url.split(".")[1];
+  const extensionType = {
+    html: "text/html",
+    css: "text/css",
+    js: "application/javascript",
+    //ico: 'image/x-icon',
+    jpg: "image/jpeg",
+    png: "image/png"
+  };
+
+  const filePath = path.join(__dirname, "..", url);
+
+  fs.readFile(filePath, (error, file) => {
+    if (error) {
+      console.log(error);
+      response.writeHead(404, "Content-Type: text/html");
+      response.end("<h1>404 file not found</h1>");
     } else {
-      res.writeHead(200, headers.html);
-      res.end(file);
+      response.writeHead(200, `Content-Type: ${extensionType[extension]}`);
+      response.end(file);
     }
   });
 };
@@ -41,3 +60,9 @@ handler.apiHandler = function(req, res) {
 };
 
 handler.apiHandler();
+
+module.exports = {
+  handleHomeRoute,
+  handlePublic,
+  apiHandler
+};
