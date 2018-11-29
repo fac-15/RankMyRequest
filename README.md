@@ -1,4 +1,4 @@
-# RankMyRequest
+# RankMyRequest [![Build Status](https://travis-ci.org/fac-15/RankMyRequest.svg?branch=staging)](https://travis-ci.org/fac-15/RankMyRequest)
 
 ## Day1 - Skelton :skull:
   - Create files - Public / src
