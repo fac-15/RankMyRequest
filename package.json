@@ -4,6 +4,7 @@
   "description": "Week 5, node.js, back-end api request",
   "main": "test.js",
   "devDependencies": {
+    "istanbul": "^0.4.5",
     "tap-spec": "^5.0.0",
     "tape": "^4.9.1"
   },
