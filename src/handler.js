@@ -44,7 +44,7 @@ const handlePublic = (request, response, url) => {
   });
 };
 
-handler.apiHandler = function(req, res) {
+const apiHandler = function(req, res) {
   https.get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY", res => {
     let result = "";
     res.on("data", chunk => {
@@ -59,7 +59,7 @@ handler.apiHandler = function(req, res) {
   });
 };
 
-handler.apiHandler();
+// handler.apiHandler();
 
 module.exports = {
   handleHomeRoute,
