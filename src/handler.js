@@ -61,7 +61,7 @@ const apiHandler = (req, res) => {
   );
 };
 
-const apiHandler2 = (req, res) => {
+const apiSplash = (req, res) => {
   console.log("serving laptop photos");
   request(
     "https://picsum.photos/list",
@@ -83,6 +83,6 @@ module.exports = {
   handleHomeRoute,
   handlePublic,
   apiHandler,
-  apiHandler2
+  apiSplash
 };
 //"https://picsum.photos/200/300?image=20"
