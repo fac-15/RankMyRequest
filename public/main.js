@@ -3,8 +3,9 @@ var button = document.querySelectorAll("button");
 
 fetchData(function(result) {
   // console.log("I got in the main.", result);
-  button.forEach(function(elem){
+  button.forEach(function(elem) {
     elem.addEventListener("click", function() {
+<<<<<<< HEAD
     var image = document.createElement('img');
     image.src = result[0].acf['featured_image'].url;
     image.style.width = '70px';
@@ -26,6 +27,24 @@ fetchData(function(result) {
     skills.appendChild(link);
     skills.style.display = 'block';
   
+=======
+
+    var h2 = document.createElement("h2");
+    h2.textContent = result[0].title.rendered;
+    skills.appendChild(h2);
+
+    });
   });
-})
+});
+
+fetchData2(function(result) {
+  // console.log("I got in the main.", result);
+  button.forEach(function(elem) {
+    elem.addEventListener("click", function() {
+      var image = document.createElement("img");
+      image.textContent = result[0].slug;
+      skills.appendChild(image);
+    });
+>>>>>>> 7cbfb9a9e9c74d89b70f3ab4f3b3ab067ba7acc1
+  });
 });
