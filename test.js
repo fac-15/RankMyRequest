@@ -20,7 +20,7 @@ test("GET Home route returns a status code of 200", t => {
 
 test("GET api route returns a status code of 200", t => {
   supertest(router)
-    .get("/onload")
+    .get("/apiHandler")
     .expect(200)
     .end((err, res) => {
       t.error(err);

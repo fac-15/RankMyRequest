@@ -1,9 +1,10 @@
 function fetchData(cb) {
+  // make the request
   var xhr = new XMLHttpRequest();
-  // console.log(xhr);
   xhr.onreadystatechange = function() {
+    //if the response has the right headers
     if (xhr.readyState === 4 && xhr.status === 200) {
-      // console.log(xhr.responseText);
+      //parse the objects
       cb(JSON.parse(xhr.responseText));
     }
   };

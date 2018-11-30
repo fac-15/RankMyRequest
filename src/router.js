@@ -10,7 +10,7 @@ const router = (request, response) => {
     console.log("TEST, Setup of post request");
     // handler.apiHandler(request, response, url);
   } else if (url === "/apiHandler") {
-    handler.apiHandler(request, response, url);
+    handler.apiHandler(request, response);
   } else if (url === "/splash") {
     console.log("onload2 has been reached");
     handler.apiSplash(request, response);

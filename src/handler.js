@@ -2,8 +2,8 @@ const https = require("https");
 const fs = require("fs");
 const path = require("path");
 const request = require("request");
-// const nasa = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY";
 
+// This is the main route of the homepage
 const handleHomeRoute = (request, response) => {
   const url = request.url;
   console.log(url);
@@ -20,6 +20,7 @@ const handleHomeRoute = (request, response) => {
   });
 };
 
+//this is the route where all of our front end files pass through
 const handlePublic = (request, response, url) => {
   const extension = url.split(".")[1];
   const extensionType = {
@@ -51,12 +52,14 @@ const apiHandler = (req, res) => {
     "https://www.coops.tech/wp-json/wp/v2/service",
     { json: true },
     (error, response, body) => {
-      // console.log("error:", error); // Print the error if one occurred
-      // console.log("statusCode:", response && response.statusCode); // Print the response status code if a response was received
-      // console.log("body:", body[0].slug);
-      res.writeHead(200, { "Content-Type": "application/json" });
-      res.end(JSON.stringify(body));
-      // console.log(body.explanation);
+      //error first response handeling
+      if (error) {
+        response.writeHead(500, "Content-Type: text/html");
+        response.end("<h1>Sorry, we've had a problem on our end</h1>");
+      } else {
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify(body));
+      }
     }
   );
 };
@@ -72,12 +75,9 @@ const apiSplash = (req, res) => {
       console.log("body:", body[0].author);
       res.writeHead(200, { "Content-Type": "application/json" });
       res.end(JSON.stringify(body));
-      // console.log(body.explanation);
     }
   );
 };
-
-// handler.apiHandler();
 
 module.exports = {
   handleHomeRoute,
