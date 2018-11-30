@@ -7,6 +7,6 @@ function fetchData(cb) {
       cb(JSON.parse(xhr.responseText));
     }
   };
-  xhr.open("GET", "/onload", true);
+  xhr.open("GET", "/api", true);
   xhr.send();
 }
