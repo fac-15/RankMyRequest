@@ -39,6 +39,7 @@ const handlePublic = (request, response, url) => {
       response.writeHead(404, "Content-Type: text/html");
       response.end("<h1>404 file not found</h1>");
     } else {
+      console.log(extensionType[extension]);
       response.writeHead(200, `Content-Type: ${extensionType[extension]}`);
       response.end(file);
     }
@@ -46,7 +47,6 @@ const handlePublic = (request, response, url) => {
 };
 
 const apiHandler = (req, res) => {
-  console.log("serving cotech route");
   request(
     "https://www.coops.tech/wp-json/wp/v2/service",
     { json: true },
