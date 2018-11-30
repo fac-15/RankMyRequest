@@ -8,6 +8,9 @@ const router = (request, response) => {
     handler.handlePublic(request, response, url);
   } else if (url === "/onload") {
     handler.apiHandler(request, response, url);
+  } else if (url === "/onload2") {
+    console.log("onload2 has been reached");
+    handler.apiHandler2(request, response);
   } else {
     response.writeHead(404, "Content-Type: text/html");
     response.end("<h1>404 file not found</h1>");
