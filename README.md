@@ -4,7 +4,10 @@
   - Create files - Public / src
 
 ![](https://i.imgur.com/yFNwSIp.png)
-
+  - npm install
+  - npm install --save-dev nodemon
+  - npm install supertest --save-dev
+  - npm install tape --save-dev
   - NPM installation - tape / tape-spec 
 
 ## :information_desk_person:Server.js
