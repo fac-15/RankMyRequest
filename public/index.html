@@ -1,15 +1,43 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf8">
-<link rel="stylesheet" href="style.css">
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Api request backend -> front">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <title>Rank My Request</title>
+  </head>
 
-<title>Page Title</title>
-</head>
-<body>
+  <body>
+    <main>
+      <section>
+         <h2>Skills</h2>
 
-<h1>This is a Heading</h1>
-<p>This is a paragraph.</p>
-<script src="main.js"></script>
-</body>
+         <div class="skills">
+           <article class="skills selector">
+              <button type="submit" class="button fab fa-html5" value="button"></button>
+               <!-- add services from initial API call here -->
+               <ul id="skills">
+                 <li>javascript</li>
+                 <li>css</li>
+                 <li>php</li>
+               </ul>
+             </article>
+         </div>
+ </section>
+
+
+
+  <h1 id='heading'> test</h1>
+  <p id='skills'></p>
+  <button type='submit' class='button' value='button'>Click Me!</button>
+
+
+
+    </main>
+ <script type="text/javascript" src="/public/request.js"></script>
+    <script type="text/javascript" src="/public/main.js"></script>
+  </body>
 </html>

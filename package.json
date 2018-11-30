@@ -4,15 +4,18 @@
   "description": "Week 5, node.js, back-end api request",
   "main": "test.js",
   "devDependencies": {
+    "istanbul": "^0.4.5",
+    "supertest": "^3.3.0",
     "tap-spec": "^5.0.0",
     "tape": "^4.9.1"
   },
   "dependencies": {
     "nock": "^10.0.2",
-    "nodemon": "^1.18.6"
+    "nodemon": "^1.18.6",
+    "request": "^2.88.0"
   },
   "scripts": {
-    "test": "tape src/test.js | tap-spec",
+    "test": "tape test.js | tap-spec",
     "dev": "nodemon src/server.js",
     "start": "node src/server.js"
   },
