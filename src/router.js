@@ -7,7 +7,6 @@ const router = (request, response) => {
   } else if (url.indexOf("public") !== -1) {
     handler.handlePublic(request, response, url);
   } else if (url === "/onload") {
-    console.log("I have been reached");
     handler.apiHandler(request, response, url);
   } else {
     response.writeHead(404, "Content-Type: text/html");
