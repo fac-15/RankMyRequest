@@ -6,11 +6,9 @@ const request = require("request");
 
 const handleHomeRoute = (request, response) => {
   const url = request.url;
-  console.log(url);
   const filePath = path.join(__dirname, "..", "public", "index.html");
   fs.readFile(filePath, (error, file) => {
     if (error) {
-      console.log(error);
       response.writeHead(500, "Content-Type: text/html");
       response.end("<h1>Sorry, we've had a problem on our end</h1>");
     } else {
@@ -46,14 +44,10 @@ const handlePublic = (request, response, url) => {
 };
 
 const apiHandler = (req, res) => {
-  console.log("serving cotech route");
   request(
     "https://www.coops.tech/wp-json/wp/v2/service",
     { json: true },
     (error, response, body) => {
-      console.log("error:", error); // Print the error if one occurred
-      console.log("statusCode:", response && response.statusCode); // Print the response status code if a response was received
-      console.log("body:", body[0].slug);
       res.writeHead(200, { "Content-Type": "application/json" });
       res.end(JSON.stringify(body));
       // console.log(body.explanation);
