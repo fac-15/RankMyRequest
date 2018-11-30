@@ -5,7 +5,7 @@ fetchData(function(result) {
   // console.log("I got in the main.", result);
   button.forEach(function(elem) {
     elem.addEventListener("click", function() {
-<<<<<<< HEAD
+      
     var image = document.createElement('img');
     image.src = result[0].acf['featured_image'].url;
     image.style.width = '70px';
@@ -16,7 +16,6 @@ fetchData(function(result) {
     p.textContent = result[0].title.rendered;
     skills.appendChild(p);
     
-
     var title = document.createElement('p');
     title.textContent = result[0].acf['featured_image'].title;
     skills.appendChild(title);
@@ -26,12 +25,6 @@ fetchData(function(result) {
     link.href = result[0].link;
     skills.appendChild(link);
     skills.style.display = 'block';
-  
-=======
-
-    var h2 = document.createElement("h2");
-    h2.textContent = result[0].title.rendered;
-    skills.appendChild(h2);
 
     });
   });
