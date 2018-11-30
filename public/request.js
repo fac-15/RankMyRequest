@@ -1,4 +1,4 @@
-(function fetchData(cb) {
+function fetchData(cb) {
   var xhr = new XMLHttpRequest();
   console.log(xhr);
   xhr.onreadystatechange = function() {
@@ -9,4 +9,4 @@
   };
   xhr.open("GET", "/onload", true);
   xhr.send();
-})();
+}

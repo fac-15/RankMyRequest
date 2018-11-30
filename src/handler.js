@@ -54,6 +54,8 @@ const apiHandler = (req, res) => {
       console.log("error:", error); // Print the error if one occurred
       console.log("statusCode:", response && response.statusCode); // Print the response status code if a response was received
       console.log("body:", body[0].slug);
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(JSON.stringify(body));
       // console.log(body.explanation);
     }
   );
