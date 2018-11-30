@@ -39,6 +39,7 @@ const handlePublic = (request, response, url) => {
       response.writeHead(404, "Content-Type: text/html");
       response.end("<h1>404 file not found</h1>");
     } else {
+      console.log(extensionType[extension]);
       response.writeHead(200, `Content-Type: ${extensionType[extension]}`);
       response.end(file);
     }
@@ -46,14 +47,29 @@ const handlePublic = (request, response, url) => {
 };
 
 const apiHandler = (req, res) => {
-  console.log("serving cotech route");
   request(
     "https://www.coops.tech/wp-json/wp/v2/service",
     { json: true },
     (error, response, body) => {
+      // console.log("error:", error); // Print the error if one occurred
+      // console.log("statusCode:", response && response.statusCode); // Print the response status code if a response was received
+      // console.log("body:", body[0].slug);
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(JSON.stringify(body));
+      // console.log(body.explanation);
+    }
+  );
+};
+
+const apiSplash = (req, res) => {
+  console.log("serving laptop photos");
+  request(
+    "https://picsum.photos/list",
+    { json: true },
+    (error, response, body) => {
       console.log("error:", error); // Print the error if one occurred
       console.log("statusCode:", response && response.statusCode); // Print the response status code if a response was received
-      console.log("body:", body[0].slug);
+      console.log("body:", body[0].author);
       res.writeHead(200, { "Content-Type": "application/json" });
       res.end(JSON.stringify(body));
       // console.log(body.explanation);
@@ -66,5 +82,7 @@ const apiHandler = (req, res) => {
 module.exports = {
   handleHomeRoute,
   handlePublic,
-  apiHandler
+  apiHandler,
+  apiSplash
 };
+//"https://picsum.photos/200/300?image=20"
