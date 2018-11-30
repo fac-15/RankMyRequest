@@ -1,9 +1,29 @@
 body {
-  background: pink;
+  margin: 0;
 }
 
+
+.skills{
+    background-image: linear-gradient(to right, #4776E6, #85D8CE);
+    height: 70px;
+}
+
+h2{
+  text-align: center;
+}
 button {
   font-size: 50px;
   border: none;
   background: none;
+  padding-right: 50px;
+}
+
+button:hover {
+  transform: translate(0px, 5px);
+}
+
+
+li{
+  display:inline;
+  margin-right: 50px;
 }
