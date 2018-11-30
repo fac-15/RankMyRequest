@@ -6,11 +6,9 @@ const request = require("request");
 // This is the main route of the homepage
 const handleHomeRoute = (request, response) => {
   const url = request.url;
-  console.log(url);
   const filePath = path.join(__dirname, "..", "public", "index.html");
   fs.readFile(filePath, (error, file) => {
     if (error) {
-      console.log(error);
       response.writeHead(500, "Content-Type: text/html");
       response.end("<h1>Sorry, we've had a problem on our end</h1>");
     } else {
@@ -52,6 +50,7 @@ const apiHandler = (req, res) => {
     "https://www.coops.tech/wp-json/wp/v2/service",
     { json: true },
     (error, response, body) => {
+
       //error first response handeling
       if (error) {
         response.writeHead(500, "Content-Type: text/html");
