@@ -1,2 +1,37 @@
-# RankMyRequest
-Week 5, node.js, back-end api request
+# RankMyRequest [![Build Status](https://travis-ci.org/fac-15/RankMyRequest.svg?branch=staging)](https://travis-ci.org/fac-15/RankMyRequest)
+
+We are making a second api call and have it as far as the console so far.
+
+
+## Day1 - Skelton :skull:
+  - Create files - Public / src
+
+![](https://i.imgur.com/yFNwSIp.png)
+  - npm install
+  - npm install --save-dev nodemon
+  - npm install supertest --save-dev
+  - npm install tape --save-dev
+  - NPM installation - tape / tape-spec 
+
+## :information_desk_person:Server.js
+-    Create server.js
+-    Require HTTP from Node to use the module
+-    Require the local sever router file
+-    Create the port name and adress by initiallising a varible with = process.env.PORT || 500
+-    createServer method to setup the server by passing in the router
+-    Create server.list(port)
+
+![](https://i.imgur.com/DEAu8W8.jpg)
+
+
+## :vertical_traffic_light: Router.js
+- Navigate to the home and errors endpoint
+
+## :hand: Handler: api
+
+We made a new function in the handler filed called apiHander. The job of this function is to call the NASA api and log it to the terminal. We hope to adapt this to be able to post the result of any api call into our webapp. 
+
+
+## :family: Public folder :family:
+
+We added main.js, index.html, style.css and linked these files
