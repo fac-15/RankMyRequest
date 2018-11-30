@@ -38,6 +38,5 @@ fetchData2(function(result) {
       image.textContent = result[0].slug;
       skills.appendChild(image);
     });
->>>>>>> 7cbfb9a9e9c74d89b70f3ab4f3b3ab067ba7acc1
   });
 });
