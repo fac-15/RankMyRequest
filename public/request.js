@@ -7,11 +7,11 @@ function fetchData(cb) {
       cb(JSON.parse(xhr.responseText));
     }
   };
-  xhr.open("GET", "/onload", true);
+  xhr.open("GET", "/apiHandler", true);
   xhr.send();
 }
 
-function fetchData2() {
+function fetchDataSplash() {
   var xhr = new XMLHttpRequest();
   console.log(xhr);
   xhr.onreadystatechange = function() {
@@ -20,7 +20,7 @@ function fetchData2() {
       JSON.parse(xhr.responseText);
     }
   };
-  xhr.open("GET", "/onload2", true);
+  xhr.open("GET", "/apiSplash", true);
   xhr.send();
 }
-fetchData2();
+// fetchDataSplash();

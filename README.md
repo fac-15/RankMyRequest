@@ -1,5 +1,8 @@
 # RankMyRequest [![Build Status](https://travis-ci.org/fac-15/RankMyRequest.svg?branch=staging)](https://travis-ci.org/fac-15/RankMyRequest)
 
+We are making a second api call and have it as far as the console so far.
+
+
 ## Day1 - Skelton :skull:
   - Create files - Public / src
 
